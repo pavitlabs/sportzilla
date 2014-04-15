@@ -1,12 +1,20 @@
 {
-  "name": "application-name",
-  "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "start": "node app.js"
+  "name" : "sportzilla",
+  "private" : true,
+  "scripts" : {
+    "start" : "node app.js"
   },
-  "dependencies": {
-    "express": "3.5.1",
-    "jade": "*"
-  }
+  "dependencies" : {
+    "express" : "3.5.1",
+    "jade" : "*"
+  },
+  "author" : {
+    "name" : "Sai Hegde",
+    "email" : "saihegde@gmail.com"
+  },
+  "keywords" : [ ],
+  "bugs" : {
+    "url" : "null"
+  },
+  "main" : "./"
 }
