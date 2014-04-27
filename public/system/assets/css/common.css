@@ -41,3 +41,8 @@ footer {
 footer p {
     padding:5px 0 12px 10px
 }
+
+body{
+    background-image:url('../img/sportzilla/soccer_player.jpg');
+    background-repeat: no-repeat;
+} 
