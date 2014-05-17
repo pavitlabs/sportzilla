@@ -1,20 +1,20 @@
 .page-header {
-  padding-bottom: 0;
-  margin: 0;
-  border-bottom: 0;
+    padding-bottom: 0;
+    margin: 0;
+    border-bottom: 0;
 }
 .page-header .navbar-nav{ float: right;}
 .page-header>div>div, .page-header>div>ul {
-  display:inline-block;
+    display:inline-block;
 }
 #text-edit{
-  padding: 13px 0 0px 0;
+    padding: 13px 0 0px 0;
 }
 .account {
-  text-align:right;
+    text-align:right;
 }
 .account>div , .account>ul {
-  text-align:left;
+    text-align:left;
 }
 .navbar .nav>li>a.brand {
     padding-left:20px;
@@ -43,6 +43,17 @@ footer p {
 }
 
 body{
-    background-image:url('../img/sportzilla/soccer_player.jpg');
+    background-image:url('../img/sportzilla/winner.jpg');
+    background-position-x: 50%;
+    background-position-y: 0%;
     background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: initial;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 } 

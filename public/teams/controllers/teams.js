@@ -12,7 +12,7 @@ angular.module('mean.teams').controller('TeamsController', ['$scope', '$statePar
             $location.path('teams/' + response._id);
         });
 
-        this.title = '';
+        this.name = '';
         //this.content = '';
     };
 

@@ -74,7 +74,7 @@ angular.module('mean.teams').config(['$stateProvider', '$urlRouterProvider',
                     loggedin: checkLoggedin
                 }
             })
-            .state('edit teams', {
+            .state('edit team', {
                 url: '/teams/:teamId/edit',
                 templateUrl: 'public/teams/views/edit.html',
                 resolve: {
