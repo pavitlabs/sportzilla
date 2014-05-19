@@ -8,22 +8,41 @@ var mongoose = require('mongoose'),
 
 
 /**
- * Team Schema
+ * Player Schema
  */
-var TeamSchema = new Schema({
+var PlayerSchema = new Schema({
     created: {
         type: Date,
         default: Date.now
     },
-    name: {
+    teamId: {
+        type: String,
+        default: '',
+        trim : true
+    },
+    firstName: {
         type: String,
         default: '',
         trim: true
     },
-    parentTeamId: {
+    middleName: {
         type: String,
         default: '',
         trim: true
+    },
+    lastName: {
+        type: String,
+        default: '',
+        trim: true
+    },
+    birthDate: {
+        type: Date,
+        default: ''
+    },
+    gender: {
+        type: String,
+        default: '',
+        enum : ['m','f']
     },
     city: {
         type: String,
@@ -40,23 +59,22 @@ var TeamSchema = new Schema({
         default: 'USA',
         enum : ['USA', 'India', 'UK']
     }
-    
 });
 
 /**
  * Validations
  */
-TeamSchema.path('name').validate(function(name) {
-    return name.length;
-}, 'Name cannot be blank');
+PlayerSchema.path('firstName').validate(function(firstName) {
+    return firstName.length;
+}, 'First Name cannot be blank');
 
 /**
  * Statics
  */
-TeamSchema.statics.load = function(id, cb) {
+PlayerSchema.statics.load = function(id, cb) {
     this.findOne({
         _id: id
     }).populate('user', 'name username').exec(cb);
 };
 
-mongoose.model('Team', TeamSchema);
+mongoose.model('Player', PlayerSchema);

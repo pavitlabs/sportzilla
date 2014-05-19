@@ -1,5 +1,5 @@
 <section data-ng-controller="TeamsController" data-ng-init="findOne()">
-    <span>{{team.created | date:'medium'}}</span> /
+    <span>{{team.created | date:'medium'}}</span>
     <span>{{team.user.name}}</span>
     <h2>{{team.name}}</h2>
     <div data-ng-show="global.user._id == team.user._id">
@@ -10,5 +10,7 @@
             <i class="glyphicon glyphicon-trash"></i>
         </a>
     </div>
-    <!-- <div>{{article.content}}</div> -->
+    <div>{{team.city}}</div>
+    <div>{{team.state}}</div>
+    <div>{{team.country}}</div>
 </section>

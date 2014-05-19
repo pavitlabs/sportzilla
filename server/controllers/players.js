@@ -4,97 +4,97 @@
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
-    Team = mongoose.model('Team'),
+    Player = mongoose.model('Player'),
     _ = require('lodash');
 
 
 /**
- * Find team by id
+ * Find player by id
  */
-exports.team = function(req, res, next, id) {
-    Team.load(id, function(err, team) {
+exports.player = function(req, res, next, id) {
+    Player.load(id, function(err, player) {
         if (err) return next(err);
-        if (!team) return next(new Error('Failed to load team ' + id));
-        req.team = team;
+        if (!player) return next(new Error('Failed to load player ' + id));
+        req.player = player;
         next();
     });
 };
 
 /**
- * Create a team
+ * Create a player
  */
 exports.create = function(req, res) {
-    var team = new Team(req.body);
-    team.user = req.user;
-
-    team.save(function(err) {
+    var player = new Player(req.body);
+    player.teamId = req.teamId;
+    
+    player.save(function(err) {
         if (err) {
             return res.send('users/signup', {
                 errors: err.errors,
-                team: team
+                player: player
             });
         } else {
-            res.jsonp(team);
+            res.jsonp(player);
         }
     });
 };
 
 /**
- * Update a team
+ * Update a player
  */
 exports.update = function(req, res) {
-    var team = req.team;
+    var player = req.player;
 
-    team = _.extend(team, req.body);
+    player = _.extend(player, req.body);
 
-    team.save(function(err) {
+    player.save(function(err) {
         if (err) {
             return res.send('users/signup', {
                 errors: err.errors,
-                team: team
+                player: player
             });
         } else {
-            res.jsonp(team);
+            res.jsonp(player);
         }
     });
 };
 
 /**
- * Delete a team
+ * Delete a player
  */
 exports.destroy = function(req, res) {
-    var team = req.team;
+    var player = req.player;
 
-    team.remove(function(err) {
+    player.remove(function(err) {
         if (err) {
             return res.send('users/signup', {
                 errors: err.errors,
-                team: team
+                player: player
             });
         } else {
-            res.jsonp(team);
+            res.jsonp(player);
         }
     });
 };
 
 /**
- * Show an team
+ * Show a player
  */
 exports.show = function(req, res) {
-    res.jsonp(req.team);
+    res.jsonp(req.player);
 };
 
 /**
- * List of teams
+ * List of players on the team
  */
 exports.all = function(req, res) {
-    Team.find().sort('-created').populate('user', 'name username').exec(function(err, teams) {
+    Player.find().sort('-created').populate('user', 'name username').exec(function(err, players) {
         if (err) {
             res.render('error', {
                 status: 500
             });
         } else {
-            res.jsonp(teams);
+            res.jsonp(players);
         }
     });
 };

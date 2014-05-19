@@ -6,14 +6,20 @@ angular.module('mean.teams').controller('TeamsController', ['$scope', '$statePar
     $scope.create = function() {
         var team = new Teams({
             name: this.name,
-            //content: this.content
+            parentTeamId: this.parentTeamId,
+            city: this.city,
+            state: this.state,
+            country: this.country
         });
         team.$save(function(response) {
             $location.path('teams/' + response._id);
         });
 
         this.name = '';
-        //this.content = '';
+        this.parentTeamId = '';
+        this.city = '';
+        this.state = '';
+        this.country = '';
     };
 
     $scope.remove = function(team) {

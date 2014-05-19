@@ -88,5 +88,12 @@ angular.module('mean.teams').config(['$stateProvider', '$urlRouterProvider',
                     loggedin: checkLoggedin
                 }
             })
+            .state('add players to team', {
+                url: '/teams/:teamId/players/create',
+                templateUrl: 'public/players/views/create.html',
+                resolve: {
+                    loggedin: checkLoggedin
+                }
+            })
     }
 ])

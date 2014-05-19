@@ -1,11 +1,13 @@
 <section data-ng-controller="TeamsController" data-ng-init="find()">
 	<ul class="teams unstyled">
 		<li data-ng-repeat="team in teams">
-			<span>{{team.created | date:'medium'}}</span> /
-			<span>{{team.user.name}}</span>
+                        <!--<span>{{team.created | date:'medium'}}</span>-->
+<!--			<span>{{team.user.name}}</span>-->
 			<h2><a data-ng-href="#!/teams/{{team._id}}">{{team.name}}</a></h2>
-			<!-- <div>{{article.content}}</div> -->
-		</li>
+			<div>{{team.city}},{{team.state}},{{team.country}}</div>
+                        <a href="/#!/teams/{{team._id}}/players/create">Add Players</a>
+                </li>
 	</ul>
+        <a href="/#!/teams/create">Got more teams to register</a>
 	<h1 data-ng-hide="!teams || teams.length">No teams yet. <br> Why don't you <a href="/#!/teams/create">Create One</a>?</h1>
 </section>
