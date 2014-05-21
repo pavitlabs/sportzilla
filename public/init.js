@@ -20,7 +20,8 @@ for (var index in window.modules) {
 var modules = ['ngCookies', 'ngResource', 
     'ui.bootstrap', 'ui.router', 
     'mean.system', 'mean.auth',
-    'mean.articles', 'mean.teams'];
+    'mean.articles', 'mean.teams', 
+    'mean.players'];
 modules = modules.concat(packageModules);
 
 // Combined modules

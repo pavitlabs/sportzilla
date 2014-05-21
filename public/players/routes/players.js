@@ -1,7 +1,7 @@
 'use strict';
 
 //Setting up route
-angular.module('mean.teams').config(['$stateProvider', '$urlRouterProvider',
+angular.module('mean.players').config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
 
         //================================================
@@ -60,40 +60,33 @@ angular.module('mean.teams').config(['$stateProvider', '$urlRouterProvider',
 
         // states for my app
         $stateProvider
-            .state('my teams', {
-                url: '/teams',
-                templateUrl: 'public/teams/views/list.html',
+            .state('players on my teams', {
+                url: '/players',
+                templateUrl: 'public/players/views/list.html',
                 resolve: {
                     loggedin: checkLoggedin
                 }
             })
-            .state('create team', {
-                url: '/teams/create',
-                templateUrl: 'public/teams/views/create.html',
-                resolve: {
-                    loggedin: checkLoggedin
-                }
-            })
-            .state('edit team', {
-                url: '/teams/:teamId/edit',
-                templateUrl: 'public/teams/views/edit.html',
-                resolve: {
-                    loggedin: checkLoggedin
-                }
-            })
-            .state('team by id', {
-                url: '/teams/:teamId',
-                templateUrl: 'public/teams/views/view.html',
-                resolve: {
-                    loggedin: checkLoggedin
-                }
-            })
-            .state('add players to team', {
-                url: '/teams/:teamId/players/create',
+            .state('create player', {
+                url: '/players/create',
                 templateUrl: 'public/players/views/create.html',
                 resolve: {
                     loggedin: checkLoggedin
                 }
             })
+            .state('edit player', {
+                url: '/players/:playerId/edit',
+                templateUrl: 'public/players/views/edit.html',
+                resolve: {
+                    loggedin: checkLoggedin
+                }
+            })
+            .state('player by id', {
+                url: '/players/:playerId',
+                templateUrl: 'public/players/views/view.html',
+                resolve: {
+                    loggedin: checkLoggedin
+                }
+            });
     }
-])
+]);

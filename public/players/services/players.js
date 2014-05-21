@@ -1,8 +1,8 @@
 'use strict';
 
-//Teams service used for teams REST endpoint
-angular.module('mean.teams').factory('Teams', ['$resource', function($resource) {
-    return $resource('teams/:teamId', {
+//Players service used for players REST endpoint
+angular.module('mean.players').factory('Players', ['$resource', function($resource) {
+    return $resource('players/:playerId', {
         teamId: '@_id'
     }, {
         update: {

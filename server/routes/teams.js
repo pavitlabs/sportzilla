@@ -2,6 +2,7 @@
 
 // Teams routes use teams controller
 var teams = require('../controllers/teams');
+var players = require('../controllers/players');
 var authorization = require('./middlewares/authorization');
 
 // Team authorization helpers
@@ -17,6 +18,7 @@ module.exports = function(app) {
     app.get('/teams', teams.all);
     app.post('/teams', authorization.requiresLogin, teams.create);
     app.get('/teams/:teamId', teams.show);
+    app.post('/teams/:teamId/players', authorization.requiresLogin, players.create);
     app.put('/teams/:teamId', authorization.requiresLogin, hasAuthorization, teams.update);
     app.del('/teams/:teamId', authorization.requiresLogin, hasAuthorization, teams.destroy);
 

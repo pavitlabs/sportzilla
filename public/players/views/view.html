@@ -1,16 +1,17 @@
-<section data-ng-controller="TeamsController" data-ng-init="findOne()">
-    <span>{{team.created | date:'medium'}}</span>
-    <span>{{team.user.name}}</span>
-    <h2>{{team.name}}</h2>
+<section data-ng-controller="PlayersController" data-ng-init="findOne()">
+    <span>{{player.created | date:'medium'}}</span>
+    <h2>{{player.firstName}} {{player.middleName}} {{player.lastName}}</h2>
     <div data-ng-show="global.user._id == team.user._id">
-        <a class="btn" href="/#!/teams/{{team._id}}/edit">
+        <a class="btn" href="/#!/players/{{player._id}}/edit">
         	<i class="glyphicon glyphicon-edit"></i>
         </a>
         <a class="btn" data-ng-click="remove();">
             <i class="glyphicon glyphicon-trash"></i>
         </a>
     </div>
-    <div>{{team.city}}</div>
-    <div>{{team.state}}</div>
-    <div>{{team.country}}</div>
+    <div>{{player.gender}}</div>
+    <div>{{player.birthDate}}</div>
+    <div>{{player.city}}</div>
+    <div>{{player.state}}</div>
+    <div>{{player.country}}</div>
 </section>

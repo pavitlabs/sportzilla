@@ -1,66 +1,74 @@
 'use strict';
 
-angular.module('mean.teams').controller('TeamsController', ['$scope', '$stateParams', '$location', 'Global', 'Teams', function ($scope, $stateParams, $location, Global, Teams) {
+angular.module('mean.players').controller('PlayersController', ['$scope', '$stateParams', '$location', 'Global', 'Players', function ($scope, $stateParams, $location, Global, Players) {
     $scope.global = Global;
 
     $scope.create = function() {
-        var team = new Teams({
-            name: this.name,
-            parentTeamId: this.parentTeamId,
+        var player = new Players({
+            firstName: this.firstName,
+            middleName: this.middleName,
+            lastName: this.lastName,
+            birthDate: this.birthDate,
+            gender: this.gender,
+            teamId: this.teamId,
             city: this.city,
             state: this.state,
             country: this.country
         });
-        team.$save(function(response) {
-            $location.path('teams/' + response._id);
+        player.$save(function(response) {
+            $location.path('players/' + response._id);
         });
 
-        this.name = '';
-        this.parentTeamId = '';
+        this.firstName = '';
+        this.middleName = '';
+        this.lastName = '';
+        this.birthDate = '';
+        this.gender = '';
+        this.teamId = '';
         this.city = '';
         this.state = '';
         this.country = '';
     };
 
-    $scope.remove = function(team) {
-        if (team) {
-            team.$remove();
+    $scope.remove = function(player) {
+        if (player) {
+            player.$remove();
 
-            for (var i in $scope.teams) {
-                if ($scope.teams[i] === team) {
-                    $scope.teams.splice(i, 1);
+            for (var i in $scope.players) {
+                if ($scope.players[i] === player) {
+                    $scope.players.splice(i, 1);
                 }
             }
         }
         else {
-            $scope.team.$remove();
-            $location.path('teams');
+            $scope.player.$remove();
+            $location.path('players');
         }
     };
 
     $scope.update = function() {
-        var team = $scope.team;
-        if (!team.updated) {
-            team.updated = [];
+        var player = $scope.player;
+        if (!player.updated) {
+            player.updated = [];
         }
-        team.updated.push(new Date().getTime());
+        player.updated.push(new Date().getTime());
 
-        team.$update(function() {
-            $location.path('teams/' + team._id);
+        player.$update(function() {
+            $location.path('players/' + player._id);
         });
     };
 
     $scope.find = function() {
-        Teams.query(function(teams) {
-            $scope.teams = teams;
+        Players.query(function(players) {
+            $scope.players = players;
         });
     };
 
     $scope.findOne = function() {
-        Teams.get({
-            teamId: $stateParams.teamId
-        }, function(team) {
-            $scope.team = team;
+        Players.get({
+            playerId: $stateParams.playerId
+        }, function(player) {
+            $scope.player = player;
         });
     };
 }]);

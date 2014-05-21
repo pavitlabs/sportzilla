@@ -1,9 +1,33 @@
-<section data-ng-controller="TeamsController" data-ng-init="findOne()">
+<section data-ng-controller="PlayersController" data-ng-init="findOne()">
 	<form class="form-horizontal col-md-6" role="form" data-ng-submit="update()">
-		<div class="form-group">
-			<label mean-token="'edit-name'" for="name" class="col-md-2 control-label">Name</label>
-			<div class="col-md-10">
-				<input type="text" class="form-control" data-ng-model="team.name" id="name" placeholder="Name" required>
+            	<div class="form-group">
+			<label mean-token="'edit-first-name'" class="col-md-3 control-label">First Name</label>
+			<div class="col-md-9">
+				<input type="text" class="form-control" data-ng-model="firstName" id="firstName" placeholder="First Name" required>
+			</div>
+		</div>
+                <div class="form-group">
+			<label mean-token="'edit-middle-name'" class="col-md-3 control-label">Middle Name</label>
+			<div class="col-md-9">
+				<input type="text" class="form-control" data-ng-model="middleName" id="middleName" placeholder="Middle Name" required>
+			</div>
+		</div>
+                <div class="form-group">
+			<label mean-token="'edit-last-name'" class="col-md-3 control-label">Last Name</label>
+			<div class="col-md-9">
+				<input type="text" class="form-control" data-ng-model="lastName" id="lastName" placeholder="Middle Name" required>
+			</div>
+		</div>
+                <div class="form-group">
+			<label mean-token="'edit-gender'" class="col-md-3 control-label">Gender</label>
+			<div class="col-md-9">
+				<input type="text" class="form-control" data-ng-model="gender" id="gender" placeholder="Gender" required>
+			</div>
+		</div>
+                <div class="form-group">
+			<label mean-token="'edit-birth-date'" class="col-md-3 control-label">Birth Date</label>
+			<div class="col-md-9">
+				<input type="text" class="form-control" data-ng-model="birthDate" id="birthDate" placeholder="Birth Date" required>
 			</div>
 		</div>
                 <div class="form-group">
@@ -26,8 +50,8 @@
 		</div>
 		
 		<div class="form-group">
-			<div class="col-md-offset-2 col-md-10">
-				<button mean-token="'edit-submit'" type="submit" class="btn btn-default">Submit</button>
+			<div class="col-md-offset-3 col-md-9">
+				<button type="submit" class="btn btn-info">Submit</button>
 			</div>
 		</div>
 	</form>

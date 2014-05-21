@@ -88,7 +88,7 @@ exports.show = function(req, res) {
  * List of players on the team
  */
 exports.all = function(req, res) {
-    Player.find().sort('-created').populate('user', 'name username').exec(function(err, players) {
+    Player.find().sort('-created').populate('teamId', 'teamId teamId').exec(function(err, players) {
         if (err) {
             res.render('error', {
                 status: 500
